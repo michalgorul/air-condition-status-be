@@ -3,6 +3,7 @@ from typing import Dict, Any
 from aiohttp import ClientSession, ClientTimeout
 
 from app.config import settings
+from iq_air.models import AvailableStates
 
 Params = Dict[str, Any] | None
 
