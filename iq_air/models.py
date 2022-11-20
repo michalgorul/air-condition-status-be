@@ -31,9 +31,9 @@ class Location(BaseModel):
 class Pollution(BaseModel):
     ts: str = Field(..., alias="timestamp", description="Timestamp")
     aqius: int = Field(..., description="AQI value based on US EPA standard")
-    mainus: str = Field(..., description="main pollutant for US AQI")
+    mainus: str = Field(..., description="Main pollutant for US AQI")
     aqicn: int = Field(..., description="AQI value based on China MEP standard")
-    maincn: str = Field(..., description="main pollutant for Chinese AQI")
+    maincn: str = Field(..., description="Main pollutant for Chinese AQI")
 
 
 class Weather(BaseModel):

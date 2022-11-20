@@ -1,8 +1,8 @@
-import logging
+import json
 
-from app.models import ResponseList
+from app.models import ResponseList, Responses, CountryData, City, CitiesCategorized
 from iq_air.client import client
-from iq_air.models import AvailableStates, AvailableCities, WeatherData, WeatherDataResponse
+from iq_air.models import AvailableStates, AvailableCities, WeatherDataResponse
 
 
 async def get_available_states(country: str) -> ResponseList:
@@ -34,3 +34,39 @@ async def get_nearest_city_coords_data(lat: str, lon: str) -> WeatherDataRespons
 async def get_city_data(country: str, state: str, city: str) -> WeatherDataResponse:
     response = await client.get_city_data(country, state, city)
     return WeatherDataResponse.parse_obj(response)
+
+
+async def get_all_cities(country: str) -> ResponseList:
+    with open("data/responses.json", "r") as file:
+        data = json.loads(file.read())
+
+    response = Responses.parse_obj(data)
+    if response is None:
+        raise ValueError
+
+    try:
+        country_data: CountryData = response.countries[country]
+        cities = [value.data for key, value in country_data.cities.items()]
+        flat_list = [item for sublist in cities for item in sublist]
+        return ResponseList(total_elements=len(flat_list), data=sorted(flat_list))
+    except KeyError as e:
+        raise NotImplemented from e
+
+
+async def get_all_cities_categorized(country: str) -> CitiesCategorized:
+    with open("data/responses.json", "r") as file:
+        data = json.loads(file.read())
+
+    response = Responses.parse_obj(data)
+    if response is None:
+        raise ValueError
+    try:
+        country_data: CountryData = response.countries[country]
+        cities = [
+            [City(state=state, city=city) for city in value.data]
+            for state, value in country_data.cities.items()
+        ]
+        flat_list = [item for sublist in cities for item in sublist]
+        return CitiesCategorized(cities=flat_list, country=country)
+    except KeyError as e:
+        raise NotImplemented from e

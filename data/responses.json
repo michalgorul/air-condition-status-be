@@ -1,0 +1,236 @@
+{
+  "countries": {
+    "Poland": {
+      "states": {
+        "totalElements": 16,
+        "data": [
+          "Greater Poland",
+          "Kujawsko-Pomorskie",
+          "Lesser Poland Voivodeship",
+          "Lodz Voivodeship",
+          "Lower Silesia",
+          "Lublin",
+          "Lubusz",
+          "Mazovia",
+          "Opole Voivodeship",
+          "Podlasie",
+          "Pomerania",
+          "Silesia",
+          "Subcarpathian Voivodeship",
+          "Swietokrzyskie",
+          "Warmia-Masuria",
+          "West Pomerania"
+        ]
+      },
+      "cities": {
+        "Greater Poland": {
+          "totalElements": 8,
+          "data": [
+            "Borowiec",
+            "Kalisz",
+            "Konin",
+            "Mosina",
+            "Pila",
+            "Pleszew",
+            "Poznan",
+            "Szamotuly"
+          ]
+        },
+        "Kujawsko-Pomorskie": {
+          "totalElements": 8,
+          "data": [
+            "Borowiec",
+            "Kalisz",
+            "Konin",
+            "Mosina",
+            "Pila",
+            "Pleszew",
+            "Poznan",
+            "Szamotuly"
+          ]
+        },
+        "Lesser Poland Voivodeship": {
+          "totalElements": 11,
+          "data": [
+            "Krakow",
+            "Kurdwanow",
+            "Myslenice",
+            "Niepolomice",
+            "Olkusz",
+            "Rabka-Zdroj",
+            "Sucha Beskidzka",
+            "Szczawnica",
+            "Wadowice",
+            "Zabierzow",
+            "Zaborze"
+          ]
+        },
+        "Lodz Voivodeship": {
+          "totalElements": 8,
+          "data": [
+            "Ksawerow",
+            "Kutno",
+            "Lask",
+            "Lodz",
+            "Pabianice",
+            "Piotrkow Trybunalski",
+            "Radomsko",
+            "Zgierz"
+          ]
+        },
+        "Lower Silesia": {
+          "totalElements": 11,
+          "data": [
+            "Dzialoszyn",
+            "Dzierzoniow",
+            "Jedlina-Zdroj",
+            "Jelenia Gora",
+            "Klodzko",
+            "Legnica",
+            "Lwowek Slaski",
+            "Nowa Ruda",
+            "Swiebodzice",
+            "Trzebnica",
+            "Wroclaw"
+          ]
+        },
+        "Lublin": {
+          "totalElements": 6,
+          "data": [
+            "Biala Podlaska",
+            "Chelm",
+            "Janow Lubelski",
+            "Lublin",
+            "Radzyn Podlaski",
+            "Zamosc"
+          ]
+        },
+        "Lubusz": {
+          "totalElements": 2,
+          "data": [
+            "Nowa Sol",
+            "Olbrachcice"
+          ]
+        },
+        "Mazovia": {
+          "totalElements": 14,
+          "data": [
+            "Ciemniewo",
+            "Gajowka Modrzewina",
+            "Konstancin-Jeziorna",
+            "Legionowo",
+            "Otwock",
+            "Piastow",
+            "Plock",
+            "Radom",
+            "Siedlce",
+            "Sierpc",
+            "Ursus",
+            "Warsaw",
+            "Wawer",
+            "Zyrardow"
+          ]
+        },
+        "Opole Voivodeship": {
+          "totalElements": 8,
+          "data": [
+            "Brzeg",
+            "Glubczyce",
+            "Kedzierzyn-Kozle",
+            "Krapkowice",
+            "Krzanowice",
+            "Nysa",
+            "Olesno",
+            "Zdzieszowice"
+          ]
+        },
+        "Podlasie": {
+          "totalElements": 6,
+          "data": [
+            "Augustow",
+            "Bialystok",
+            "Grajewo",
+            "Lomza",
+            "Nowa Swidzialowka",
+            "Suwalki"
+          ]
+        },
+        "Pomerania": {
+          "totalElements": 7,
+          "data": [
+            "Chojnice",
+            "Czarnowko",
+            "Gdansk",
+            "Gdynia",
+            "Koscierzyna",
+            "Malbork",
+            "Sopot"
+          ]
+        },
+        "Silesia": {
+          "totalElements": 9,
+          "data": [
+            "Goczalkowice Zdroj",
+            "Katowice",
+            "Lubliniec",
+            "Orzesze",
+            "Raciborz",
+            "Rybnik",
+            "Sosnowiec",
+            "Tychy",
+            "Zawiercie"
+          ]
+        },
+        "Subcarpathian Voivodeship": {
+          "totalElements": 12,
+          "data": [
+            "Debica",
+            "Jaroslaw",
+            "Krempna",
+            "Krosno",
+            "Mielec",
+            "Nisko",
+            "Przemysl",
+            "Rudnik nad Sanem",
+            "Rymanow-Zdroj",
+            "Rzeszow",
+            "Sanok",
+            "Tarnobrzeg"
+          ]
+        },
+        "Swietokrzyskie": {
+          "totalElements": 7,
+          "data": [
+            "Domaszowice",
+            "Kazimierza Wielka",
+            "Kepie",
+            "Kielce",
+            "Kije",
+            "Pinczow",
+            "Starachowice"
+          ]
+        },
+        "Warmia-Masuria": {
+          "totalElements": 7,
+          "data": [
+            "Domaszowice",
+            "Kazimierza Wielka",
+            "Kepie",
+            "Kielce",
+            "Kije",
+            "Pinczow",
+            "Starachowice"
+          ]
+        },
+        "West Pomerania": {
+          "totalElements": 3,
+          "data": [
+            "Kamien Pomorski",
+            "Szczecin",
+            "Szczecinek"
+          ]
+        }
+      }
+    }
+  }
+}

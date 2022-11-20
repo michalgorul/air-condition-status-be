@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 
-from app.models import ResponseList
+from app.models import ResponseList, CitiesCategorized
 from iq_air import service
 from iq_air.models import WeatherDataResponse
 
@@ -15,6 +15,16 @@ async def get_available_states(country: str) -> ResponseList:
 @router.get("/cities/{country}/{state}", response_model=ResponseList)
 async def get_available_cities(country: str, state: str) -> ResponseList:
     return await service.get_available_cities(country, state)
+
+
+@router.get("/{country}/cities/all", response_model=ResponseList)
+async def get_all_polish_cities(country: str) -> ResponseList:
+    return await service.get_all_cities(country)
+
+
+@router.get("/{country}/cities/all/categorized", response_model=CitiesCategorized)
+async def get_all_cities_categorized(country: str) -> CitiesCategorized:
+    return await service.get_all_cities_categorized(country)
 
 
 @router.get("/nearest_city", response_model=WeatherDataResponse)
