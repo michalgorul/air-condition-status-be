@@ -1,4 +1,4 @@
-from typing import Dict, Any
+from typing import Dict, Any, List
 
 from aiohttp import ClientSession, ClientTimeout
 
@@ -39,11 +39,11 @@ class NinjasClient:
     async def _get(self, params: Params = None, **kwargs: Any) -> Any:
         return await self._request("GET", params=params, **kwargs)
 
-    async def get_geolocation(self, city: str, country: str | None) -> Dict[str, Any]:
+    async def get_geolocation(self, city: str, country: str | None) -> List[Dict[str, Any]]:
         city = {"city": city}
         country = {"country": country} if country else {}
         params = city | country
-        result: Dict[str, Any] = await self._get(params=params)
+        result = await self._get(params=params)
         return result
 
 

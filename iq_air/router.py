@@ -28,11 +28,6 @@ async def get_all_cities_categorized(country: str) -> CitiesCategorized:
 
 
 @router.get("/nearest_city", response_model=WeatherDataResponse)
-async def get_nearest_city_data() -> WeatherDataResponse:
-    return await service.get_nearest_city_data()
-
-
-@router.get("/nearest_city", response_model=WeatherDataResponse)
 async def get_nearest_city_coords_data(lat: str, lon: str) -> WeatherDataResponse:
     return await service.get_nearest_city_coords_data(lat, lon)
 
