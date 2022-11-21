@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from iq_air.router import router as iq_air_router
 from open_meteo.router import router as open_meteo_router
+from ninjas_geocoding.router import router as ninjas_router
 
 app = FastAPI(
     title="Air condition status API",
@@ -14,6 +15,7 @@ app = FastAPI(
 
 app.include_router(iq_air_router)
 app.include_router(open_meteo_router)
+app.include_router(ninjas_router)
 
 
 origins = [
