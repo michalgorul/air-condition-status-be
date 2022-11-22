@@ -1,0 +1,27 @@
+services:
+  air-status:
+    image: air-status
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - "8000:8000"
+    env_file:
+      - ENV/local.env
+    networks:
+      - private
+
+  postgres:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_DB: air_status
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    networks:
+      - private
+    ports:
+      - "5432:5432"
+
+networks:
+  private:
+    driver: bridge

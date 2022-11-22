@@ -37,7 +37,7 @@ async def get_city_data(country: str, state: str, city: str) -> WeatherDataRespo
 
 
 async def get_all_cities(country: str) -> ResponseList:
-    with open("data/responses.json", "r") as file:
+    with open("app/data/responses.json", "r") as file:
         data = json.loads(file.read())
 
     response = Responses.parse_obj(data)
