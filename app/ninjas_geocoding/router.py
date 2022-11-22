@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 
-from ninjas_geocoding import service
-from ninjas_geocoding.models import GeolocationResponse
+from app.ninjas_geocoding import service
+from app.ninjas_geocoding.models import GeolocationResponse
 
 router = APIRouter(prefix="", tags=["Ninjas Geolocation"])
 

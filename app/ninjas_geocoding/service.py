@@ -1,5 +1,5 @@
-from ninjas_geocoding.client import client
-from ninjas_geocoding.models import GeolocationResponse
+from app.ninjas_geocoding.client import client
+from app.ninjas_geocoding.models import GeolocationResponse
 
 
 async def get_geolocation(city: str, country: str | None) -> GeolocationResponse:

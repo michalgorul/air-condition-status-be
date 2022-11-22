@@ -1,9 +1,9 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from iq_air.router import router as iq_air_router
-from open_meteo.router import router as open_meteo_router
-from ninjas_geocoding.router import router as ninjas_router
+from app.iq_air.router import router as iq_air_router
+from app.open_meteo.router import router as open_meteo_router
+from app.ninjas_geocoding.router import router as ninjas_router
 
 app = FastAPI(
     title="Air condition status API",

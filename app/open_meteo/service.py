@@ -1,6 +1,6 @@
 from app.models import Coordinates
-from open_meteo.client import client
-from open_meteo.models import Forecast, DailyWeatherVariables
+from app.open_meteo.client import client
+from app.open_meteo.models import Forecast, DailyWeatherVariables
 
 
 async def get_forecast_all_values(lat: str, lon: str) -> Forecast:

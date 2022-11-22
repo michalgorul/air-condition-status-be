@@ -1,8 +1,8 @@
 import json
 
 from app.models import ResponseList, Responses, CountryData, City, CitiesCategorized
-from iq_air.client import client
-from iq_air.models import AvailableStates, AvailableCities, WeatherDataResponse
+from app.iq_air.client import client
+from app.iq_air.models import AvailableStates, AvailableCities, WeatherDataResponse
 
 
 async def get_available_states(country: str) -> ResponseList:

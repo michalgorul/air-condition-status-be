@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 
-from open_meteo import service
-from open_meteo.models import Forecast
+from app.open_meteo import service
+from app.open_meteo.models import Forecast
 
 router = APIRouter(prefix="", tags=["Open Meteo"])
 

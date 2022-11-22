@@ -3,7 +3,7 @@ from typing import Dict, Any
 from aiohttp import ClientSession, ClientTimeout
 
 from app.config import settings
-from open_meteo.models import Forecast
+from app.open_meteo.models import Forecast
 
 Params = Dict[str, Any] | None
 

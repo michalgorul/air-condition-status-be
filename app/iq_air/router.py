@@ -1,8 +1,8 @@
 from fastapi import APIRouter
 
 from app.models import ResponseList, CitiesCategorized
-from iq_air import service
-from iq_air.models import WeatherDataResponse
+from app.iq_air import service
+from app.iq_air.models import WeatherDataResponse
 
 router = APIRouter(prefix="", tags=["IQ Air"])
 
