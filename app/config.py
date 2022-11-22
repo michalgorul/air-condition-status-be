@@ -8,6 +8,12 @@ class Settings(BaseSettings):
     ninjas_api_url: str
     ninjas_api_key: str
 
+    db_user: str
+    db_password: str
+    db_host: str
+    db_port: str
+    db_database: str
+
     class Config:
         env_file = "ENV/local.env"
         env_file_encoding = "utf-8"
