@@ -1,8 +1,10 @@
 import json
 
+from app.database.weather.schema import WeatherSchema
 from app.models import ResponseList, Responses, CountryData, City, CitiesCategorized
 from app.iq_air.client import client
-from app.iq_air.models import AvailableStates, AvailableCities, WeatherDataResponse
+from app.iq_air.models import AvailableStates, AvailableCities, WeatherDataResponse, WeatherData
+from app.weather_history.service import save_weather_data
 
 
 async def get_available_states(country: str) -> ResponseList:
@@ -26,14 +28,35 @@ async def get_nearest_city_data() -> WeatherDataResponse:
     return WeatherDataResponse.parse_obj(response)
 
 
+async def save_data_to_db(weather_response: WeatherDataResponse) -> None:
+    weather: WeatherData = weather_response.data
+    weather_schema = WeatherSchema(
+        city=weather.city,
+        state=weather.state,
+        country=weather.country,
+        latitude=weather.location.coordinates[0],
+        longitude=weather.location.coordinates[1],
+        temperature=weather.current.weather.tp,
+        pressure=weather.current.weather.pr,
+        humidity=weather.current.weather.hu,
+        aqius=weather.current.pollution.aqius,
+        aqicn=weather.current.pollution.aqicn,
+    )
+    await save_weather_data(weather_schema)
+
+
 async def get_nearest_city_coords_data(lat: str, lon: str) -> WeatherDataResponse:
     response = await client.get_nearest_city_coords_data(lat, lon)
-    return WeatherDataResponse.parse_obj(response)
+    weather_response = WeatherDataResponse.parse_obj(response)
+    await save_data_to_db(weather_response)
+    return weather_response
 
 
 async def get_city_data(country: str, state: str, city: str) -> WeatherDataResponse:
     response = await client.get_city_data(country, state, city)
-    return WeatherDataResponse.parse_obj(response)
+    weather_response = WeatherDataResponse.parse_obj(response)
+    await save_data_to_db(weather_response)
+    return weather_response
 
 
 async def get_all_cities(country: str) -> ResponseList:
@@ -54,7 +77,7 @@ async def get_all_cities(country: str) -> ResponseList:
 
 
 async def get_all_cities_categorized(country: str) -> CitiesCategorized:
-    with open("data/responses.json", "r") as file:
+    with open("app/data/responses.json", "r") as file:
         data = json.loads(file.read())
 
     response = Responses.parse_obj(data)
