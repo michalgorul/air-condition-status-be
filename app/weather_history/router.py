@@ -13,6 +13,11 @@ async def get_all_weather_data() -> List[WeatherSchema]:
     return await service.get_all_weather_data()
 
 
-@router.post("/history", response_model=WeatherSchema | None)
+@router.post("/history", response_model=WeatherSchema)
 async def save_weather_data(data: WeatherSchema) -> WeatherSchema:
     return await service.save_weather_data(data)
+
+
+@router.delete("/history/{data_id}", response_model=str)
+async def delete_weather_data(data_id: str) -> str:
+    return await service.delete_weather_data(data_id)

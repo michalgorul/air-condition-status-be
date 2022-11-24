@@ -1,6 +1,6 @@
 from typing import List
 
-from sqlalchemy import select
+from sqlalchemy import select, delete
 from sqlalchemy.orm import Session
 
 from app.database.database import engine
@@ -22,5 +22,19 @@ async def save_weather_data(data: WeatherSchema) -> WeatherSchema:
             return WeatherSchema(**row.dict())
         except Exception as e:
             error_str = f"Failed to add row to table, data={data.dict()}, error={e}"
+            print(error_str)
+            raise ValueError(error_str)
+
+
+async def delete_weather_data(data_id: str) -> str:
+    with Session(engine) as session:
+        try:
+            result = session.query(WeatherTable).filter(WeatherTable.id == data_id).delete()
+            session.commit()
+            if not result:
+                raise Exception("Selected entity does not exist")
+            return "success"
+        except Exception as e:
+            error_str = f"Failed to delete data from table, id={data_id}, error={e}"
             print(error_str)
             raise ValueError(error_str)
