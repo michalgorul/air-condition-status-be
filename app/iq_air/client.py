@@ -3,6 +3,7 @@ from typing import Dict, Any
 from aiohttp import ClientSession, ClientTimeout
 
 from app.config import settings
+from fastapi import HTTPException
 
 Params = Dict[str, Any] | None
 
@@ -32,7 +33,7 @@ class IQAirClient:
             if resp.ok:
                 return await resp.json() if text_payload else None
             else:
-                raise Exception(resp.status, text_payload)
+                raise HTTPException(status_code=resp.status, detail=text_payload)
 
     async def _get(self, path: str, params: Params = None, **kwargs: Any) -> Any:
         return await self._request("GET", path, params=params, **kwargs)

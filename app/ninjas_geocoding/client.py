@@ -1,6 +1,7 @@
 from typing import Dict, Any, List
 
 from aiohttp import ClientSession, ClientTimeout
+from fastapi import HTTPException
 
 from app.config import settings
 
@@ -34,7 +35,7 @@ class NinjasClient:
             if resp.ok:
                 return await resp.json() if text_payload else None
             else:
-                raise Exception(resp.status, text_payload)
+                raise HTTPException(status_code=resp.status, detail=text_payload)
 
     async def _get(self, params: Params = None, **kwargs: Any) -> Any:
         return await self._request("GET", params=params, **kwargs)
