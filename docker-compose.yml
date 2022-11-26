@@ -10,6 +10,8 @@ services:
       - ENV/local.env
     networks:
       - private
+    depends_on:
+      - postgres
 
   postgres:
     image: postgres:15-alpine
